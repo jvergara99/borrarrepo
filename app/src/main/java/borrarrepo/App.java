@@ -3,12 +3,52 @@
  */
 package borrarrepo;
 
+import java.util.Scanner;
+import main.java.borrarrepo.model.Calcula;
+
 public class App {
+    
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        Scanner in = new Scanner(System.in);
+
+        Calcula c = new Calcula();
+        
+
+        System.out.println("1) Sum");
+        System.out.println("2) Subs");
+        System.out.println("3) Multi");
+
+        int opt = in.nextInt();
+
+        if ( opt < 1 || opt > 3) {
+            System.out.println("Opción incorrecta");
+            return;
+        }
+        System.out.print("Ingresa primer número: ");
+        int a = in.nextInt();
+
+        System.out.print("Ingresa segundo número: ");
+        int b = in.nextInt();
+        String result = "";
+
+        switch (opt) {
+            case 1:
+                result = (a + " + " + b + " = " + c.sum(a, b));
+                break;
+            case 2:
+                result = (a + " - " + b + " = " + c.subs(a, b));
+                break;
+            case 3:
+               result = (a + " x " + b + " = " + c.multi(a, b));
+                break;
+        }
+        System.out.println(result);
+
     }
 }
